@@ -8,7 +8,7 @@
 	<script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArhat-BAerh4c2_jC7GQEXnwmFwTSXcvY&sensor=false&libraries=places">
     </script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 	<link rel="prefetch" href="/assets/zoom.png">
 	<!-- SCRIPTS -->
@@ -17,7 +17,15 @@
 	<!-- fancybox init -->
 	<script>
 	$(document).ready(function(e) {
+		$(".prof-pic-1-upload").hide();
 		$.fn.editable.defaults.mode = "inline";
+		$("#heading").editable({
+			type: 'text',
+			title: 'Enter username',
+			success: function(response, newVal){
+				$("#heading").html(newVal);
+			}
+		});
 		var lis = $('.nav > li');
 		menu_focus( lis[0], 1 );
 		
@@ -30,7 +38,16 @@
 			}
 		});
 
-		$("#venue").editable();
+		$("#prof-pic-1").mouseenter(function(){
+			$(".editpic-prof-1").html('<%=image_tag("pecil.png",size:"40")%>');
+			$(".editpic-prof-1").click(function(){
+				$("#profile-image-upload").click();
+			});
+		});
+
+		$("#prof-pic-1").mouseleave(function(){
+			$(".editpic-prof-1").empty();
+		});
 	});
 	</script>
 
@@ -170,24 +187,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	
 	
 	<!-- === MAIN Background === -->
-	<div class="slide story" id="slide-1" data-slide="1">
-		<div class="container">
-			
-			<div id="home-row-2" class="row clearfix">
-				<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="3"><img id ="prof-pic" src="/assets/s01.jpg"></div><span>Rahul</span></div>
-				<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="3"><img id ="prof-pic" src="/assets/s02.jpg"></div><span>Roshini</span></div>
-				
-			</div><!-- /row -->
-			<div id="home-row-1" class="row clearfix">
-				<div class="col-12">
-					<div id="heading"><h1 class="font-semibold">Are Getting Married..</h1></div>
-					
-					<br>
-					<br>
-				</div><!-- /col-12 -->
-			</div><!-- /row -->
-		</div><!-- /container -->
-	</div><!-- /slide1 -->
+	<div class="slide story" id="slide-1" data-slide="1"> <div class="container"> <div id="home-row-1" class="row clearfix"> <div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="3"><img id ="prof-pic" src="/assets/s01.jpg"><p class="prof-name">Roshini</p></div></div> <div class="col-12 col-sm-4"><div class="home-hover navigation-slide"><img id ="prof-pic" src="/assets/s02.jpg"><p class="prof-name">Rahul</p></div></div> </div><!-- /row --> <a style="" title="" data-original-title="" class="editable editable-click" href="#" id="username" data-type="text" data-pk="1" data-title="Enter username">superusevsssf</a> <div id="home-row-2" class="row clearfix"> <div class="col-12"> <div id="heading"><h1 class="font-semibold"> Getting Married..</h1></div> <br> <br> </div><!-- /col-12 --> </div><!-- /row --> </div><!-- /container --> </div><!-- /slide1 -->
+Chat Conversation End
+
 	
 	<!-- === Slide 2 === -->
 	<div class="slide story" id="slide-2" data-slide="2">
